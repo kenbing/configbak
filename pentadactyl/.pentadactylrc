@@ -1,0 +1,50 @@
+" 1.0b6 (created: 2011/03/09 09:25:18)
+
+loadplugins '\.(js|penta)$'
+group user
+set guioptions=sC
+
+" vim: set ft=pentadactyl:
+set editor="xterm -e vim"
+style -name commandline-ime chrome://* #dactyl-commandline-command input {ime-mode: inactive;}
+
+" Comand mode
+cmap -builtin <C-f> <Right>
+cmap -builtin <C-b> <Left>
+cmap -builtin <C-c> <C-v><C-c>
+cmap -builtin <C-v> <C-v><C-v>
+cmap -builtin <C-x> <C-v><C-x>
+cmap -builtin <C-z> <C-v><C-z>
+
+" Insert mode
+imap -builtin <C-c> <C-v><C-c>
+imap -builtin <C-v> <C-v><C-v>
+imap -builtin <C-x> <C-v><C-x>
+imap -builtin <C-z> <C-v><C-z>
+imap -builtin <C-n> <C-Tab>
+imap -builtin <C-p> <C-S-Tab>
+imap -builtin <C-f> <Right>
+imap -builtin <C-b> <Left>
+imap -builtin <C-a> <Home>
+imap -builtin <C-e> <End>
+
+" Normal mode
+map -builtin <C-c> <C-v><C-c>
+map -builtin <C-v> <C-v><C-v>
+map -builtin <C-x> <C-v><C-x>
+map -builtin <C-z> <C-v><C-z>
+map -builtin <C-s> <C-c>
+
+" Previous & Next page
+set nextpattern='^Next [>»]','^Next »','\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b','s*下一页|下一张|下页s*'
+set previouspattern='[<«] Prev$','« Prev$','\bprev(ious)?\b',^<$,'^(<<|«)$','^(<|«)','(<|«)$','s*上一页|上一张|下页s*'
+
+" Shortcut for menus & tools bar
+map <F9> :set go+=mT
+map <S-F9> :set go-=mT
+
+" Shortcut for bmarks 
+nmap b :bmarks! -tags<Space>
+
+" webqq 时关闭让penta进入穿越模式。
+autocmd LocationChange web.qq.com :normal! <C-z>
